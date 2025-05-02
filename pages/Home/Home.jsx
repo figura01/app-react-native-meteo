@@ -3,6 +3,8 @@ import { View, Text } from 'react-native';
 import { s } from './Home.style.js';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { MeteoAPI } from '../../api/meteo.js';
+import { Txt } from '../../components/Txt/Txt.jsx';
+import { MeteoBasic } from '../../components/MeteoBasic/MeteoBasic.jsx';
 
 function Home() {
     const [coords, setCoords] = useState();
@@ -47,7 +49,8 @@ function Home() {
         <>
 
             <View style={s.meteo_basic}>
-                <Text style={s.meteo_basic.txt}>Meteo Basic</Text>
+                <MeteoBasic />
+                
             </View>
             <View style={s.searchbar_container}>
                 <Text>Searchbar</Text>
