@@ -5,10 +5,12 @@ import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo
 import { MeteoAPI } from '../../api/meteo.js';
 import { Txt } from '../../components/Txt/Txt.jsx';
 import { MeteoBasic } from '../../components/MeteoBasic/MeteoBasic.jsx';
+import { getWeatherInterpretation } from '../../services/meteo-service.js';
 
 function Home() {
     const [coords, setCoords] = useState();
     const [weather, setWeather] = useState();
+    const currentWeather = weather?.current_weather;
 
     useEffect(() => {
         getUserCoords();
@@ -45,11 +47,15 @@ function Home() {
     }
     console.log("weather value: ", weather);
 
-    return (
+    return currentWeather ? (
         <>
 
             <View style={s.meteo_basic}>
-                <MeteoBasic />
+                <MeteoBasic 
+                    temperature={Math.round(currentWeather?.temperature)}
+                    city="Paris"
+                    interpretation={getWeatherInterpretation(currentWeather?.weathercode)}
+                />
                 
             </View>
             <View style={s.searchbar_container}>
@@ -59,6 +65,6 @@ function Home() {
                 <Text>Meteo Advance</Text>
             </View>
         </>
-    );
+    ) : null;
 }
 export default Home;
