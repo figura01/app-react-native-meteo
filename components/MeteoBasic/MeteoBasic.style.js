@@ -16,12 +16,13 @@ const s = StyleSheet.create({
     weather_label: {
         alignSelf:"flex-end",
         transform: [{ rotate: '-90deg' }],
+        fontSize:20,
     },
     city: {},
     image: {
         width: 90,
         height: 90,
-        backgroundColor: 'white',
+        //backgroundColor: 'white',
     },
 });
 
