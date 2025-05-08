@@ -5,6 +5,7 @@ import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo
 import { MeteoAPI } from '../../api/meteo.js';
 import { Txt } from '../../components/Txt/Txt.jsx';
 import { MeteoBasic } from '../../components/MeteoBasic/MeteoBasic.jsx';
+import { MeteoAdvance } from '../../components/MeteoAdvance/MeteoAdvance.jsx';
 import { getWeatherInterpretation } from '../../services/meteo-service.js';
 
 function Home() {
@@ -74,7 +75,11 @@ function Home() {
                 <Text>Searchbar</Text>
             </View>
             <View style={s.meteo_advance}>
-                <Text>Meteo Advance</Text>
+                <MeteoAdvance 
+                    wind={currentWeather?.windspeed}
+                    dusk={weather?.daily?.sunrise[0].split('T')[1]}
+                    down={weather?.daily?.sunset[0].split('T')[1]}
+                />
             </View>
         </>
     ) : null;
