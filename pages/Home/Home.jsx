@@ -10,6 +10,7 @@ import { getWeatherInterpretation } from '../../services/meteo-service.js';
 function Home() {
     const [coords, setCoords] = useState();
     const [weather, setWeather] = useState();
+    const [city, setCity] = useState();
     const currentWeather = weather?.current_weather;
 
     useEffect(() => {
@@ -19,8 +20,9 @@ function Home() {
     useEffect(() => {
         if(coords) {
             fetchWeather(coords);
+            fetchCity(coords);
         }
-    }, [coords])
+    }, [coords]);
 
     async function getUserCoords() {
         let { status } = await requestForegroundPermissionsAsync();
@@ -31,7 +33,9 @@ function Home() {
                 lat: location.coords.latitude,
                 lng: location.coords.longitude
             });
+
             setCoords({lat: "48.85", lng: "2.35"});
+
             return;
         } else {
             setCoords({lat: "48.85", lng: "2.35"});
@@ -45,7 +49,15 @@ function Home() {
             setWeather(weatherResponse);
         }
     }
-    console.log("weather value: ", weather);
+
+    async function fetchCity(coordinates) {
+        let cityResponse = await MeteoAPI.fetchCityFromCoords(
+          coordinates
+        );
+        if(cityResponse) {
+            setCity(cityResponse);
+        }
+    }
 
     return currentWeather ? (
         <>
@@ -53,7 +65,7 @@ function Home() {
             <View style={s.meteo_basic}>
                 <MeteoBasic 
                     temperature={Math.round(currentWeather?.temperature)}
-                    city="Paris"
+                    city={city}
                     interpretation={getWeatherInterpretation(currentWeather?.weathercode)}
                 />
                 
