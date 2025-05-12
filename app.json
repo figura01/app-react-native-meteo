@@ -1,8 +1,8 @@
 {
   "expo": {
-    "_comment": "jsEngine: 'jsc'",
+    "_comment": "jsEngine: 'jsc' in developpement to use react-native-debugger",
     "name": "react-native-meteo",
-    "slug": "skywatch-react-native",
+    "slug": "react-native-meteo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,12 +28,6 @@
     },
     "plugins": [
       "expo-font"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "af273ef5-879d-4ead-bdd2-19942a88f03c"
-      }
-    },
-    "owner": "figura"
+    ]
   }
 }
