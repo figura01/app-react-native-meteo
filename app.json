@@ -1,7 +1,8 @@
 {
   "expo": {
+    "_comment": "jsEngine: 'jsc'",
     "name": "react-native-meteo",
-    "slug": "react-native-meteo",
+    "slug": "skywatch-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,13 +20,20 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "af273ef5-879d-4ead-bdd2-19942a88f03c"
+      }
+    },
+    "owner": "figura"
   }
 }
