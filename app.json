@@ -1,7 +1,7 @@
 {
   "expo": {
-    "_comment": "jsEngine: 'jsc'",
-    "name": "react-native-meteo",
+    "_comment": "jsEngine: 'jsc' in developpement to use react-native-debugger",
+    "name": "skywatch-react-native",
     "slug": "skywatch-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,7 +21,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "softwareKeyboardLayoutMode": "pan"
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "com.figura.skywatchreactnative"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -31,9 +32,15 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "af273ef5-879d-4ead-bdd2-19942a88f03c"
+        "projectId": "fbc996ed-f2c9-4d3a-9326-b9d229a7ff6f"
       }
     },
-    "owner": "figura"
+    "owner": "figura",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/fbc996ed-f2c9-4d3a-9326-b9d229a7ff6f"
+    }
   }
 }
